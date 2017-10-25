@@ -1,0 +1,82 @@
+---
+layout: default
+---
+
+<!--
+#photo{
+text-align: center;
+border: 1px solid #696989;
+background-color: beige;
+padding: 10px;
+}
+-->
+
+
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+ <header class="post-header">
+     <p class="post-meta">
+      <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+        {% assign date_format = site.minima.date_format | default: "%b %-d, %Y" %}
+        {{ page.date | date: date_format }}
+      </time>
+      {% if page.author %}
+        • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">{{ page.author }}</span></span>
+      {% endif %}
+    
+      {% if page.license %}
+        <span style="float: right">{{ page.license }}</span>
+      {% endif %}
+      </p>
+      <!-- govnokod   link to parent gallery -->
+      {% for post in site.posts %}
+       {% if page.gallerytitle == post.title %}
+       <span>
+         <h2>
+           <a class="post-link" href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
+         </h2>
+       </span>
+       {% endif %}
+      {% endfor %} 
+ </header>
+
+  <div class="post-content" itemprop="articleBody">
+    {{ content }}
+  </div>
+  
+ <div>
+        {% if page.prev_filename %}
+        <a  href="{{ site.url }}/photo_{{page.prev_filename}}" style="float: left;"> <<< prev </a>
+        {% endif %}
+        {% if page.next_filename %}
+        <a  href="{{ site.url }}/photo_{{page.next_filename}}" style="float: right;"> next >>> </a>
+        {% endif %}
+ </div>
+ <br> 
+ <div class="photoInfoContainer">
+        <div class="photoInfo1">
+          <div>
+         
+          </div>
+        </div>
+        <div class="photoInfo2">
+    
+          <ul>
+			  <!--
+            <li>{% if camera contains 'iPhone' %} <i class="fa fa-mobile"></i> {% else %} <i
+              class="fa fa-camera-retro"></i> {% endif %} {{camera}}
+            </li>
+            -->
+            <li><b>Camera</b> {{page.camera}}</li>
+            <li><b>Lens</b> {{page.lens}}</li>
+            <li><b>Exposure</b> {{page.exposure}}</li>
+            <li><b>F</b> {{page.fnumber}}</li>
+            <li><b>ISO</b> {{page.ISO}}</li>
+         
+          </ul>
+        </div>
+      </div>
+  {% if site.disqus.shortname %}
+    {% include disqus_comments.html %}
+  {% endif %}
+</article>

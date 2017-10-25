@@ -1,0 +1,36 @@
+---
+layout: default
+---
+<!--
+<h3>Gallery header in /gallery/index.html</h3>
+-->
+{% assign gallery_grouped = site.categories.gallery | group_by:'year' %}
+
+{% for group in gallery_grouped %}
+<h3>{{group.name}} year <br> </h3><hr/>
+{% assign posts = group.items %}
+
+{% for post in posts %}
+        <!--
+		{% if post.author %}
+          <span class="post-meta">by <b>{{ post.author }}</b></span>
+        {% endif %}
+        
+        {% if post.year %}
+          <span class="post-meta"> (<b>{{ post.year }}</b>) </span>
+        {% endif %}
+        -->
+    <h3><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+    {% if post.author %}
+      <span class="post-meta">, by <b>{{ post.author }}</b></span>
+    {% endif %}
+    {% if post.year %}
+       <span class="post-meta"> (<b>{{ post.year }}</b>) </span>
+    {% endif %}
+    </h3>
+    <div id="gallery_preview">
+    {{post.excerpt  }} 
+    </div>
+{% endfor %}
+{% endfor %}
+

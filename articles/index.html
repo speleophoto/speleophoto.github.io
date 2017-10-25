@@ -1,0 +1,16 @@
+---
+layout: default
+---
+<!--
+<h1>Articles header in articles/index.html</h1>
+-->
+{% for post in site.categories.articles %}
+    <time>{{ post.date | date: "%b %-d, %Y" }}</time>
+        {% if post.author %}
+          <span class="post-meta">by <b>{{ post.author }}</b></span>
+        {% endif %}
+    <h3><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h3>
+    {{post.excerpt | remove: '<p>' | remove: '</p>' }} <a href="{{ post.url | prepend: site.baseurl }}">...</a><p><p>
+    
+{% endfor %}
+
