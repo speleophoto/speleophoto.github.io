@@ -15,6 +15,16 @@ padding: 10px;
 <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 
  <header class="post-header">
+	       <!-- govnokod   link to parent gallery -->
+      {% for post in site.posts %}
+       {% if page.gallerytitle == post.title %}
+       <span >
+         <h2>
+           <a class="post-link" href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
+         </h2>
+       </span>
+       {% endif %}
+      {% endfor %} 
      <p class="post-meta">
       <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
         {% assign date_format = site.minima.date_format | default: "%b %-d, %Y" %}
@@ -28,16 +38,6 @@ padding: 10px;
         <span style="float: right">{{ page.license }}</span>
       {% endif %}
       </p>
-      <!-- govnokod   link to parent gallery -->
-      {% for post in site.posts %}
-       {% if page.gallerytitle == post.title %}
-       <span>
-         <h2>
-           <a class="post-link" href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
-         </h2>
-       </span>
-       {% endif %}
-      {% endfor %} 
  </header>
 
   <div class="post-content" itemprop="articleBody">
