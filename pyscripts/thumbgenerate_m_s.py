@@ -1,5 +1,6 @@
 import os
 from PIL import Image
+import exifread
 
 
 gallerytitle = raw_input('Gallery name?:')
@@ -78,6 +79,20 @@ for f in onlyfiles:
             #im = Image.open(full_path)
             #im.thumbnail(thumbnail_size_s)
             #im.save(new_path, "JPEG")
+            
+            #read exif
+            f_exif = open(full_path, 'rb')
+            # Return Exif tags
+            tags = exifread.process_file(f_exif)
+            ex_camera = str(tags['Image Model'])
+            ex_focal = str(tags['EXIF FocalLength'])+'mm'
+            ex_ISO = str(tags['EXIF ISOSpeedRatings'])
+            ex_exposure = str(tags['EXIF ExposureTime'])+'sec'
+            #ex_Fnumb =tags['EXIF FNumber']
+            fnum = tags['EXIF FNumber']
+            ex_fnum = 'f/'+str(eval(str(fnum)+'.0'))
+            
+            
             yaml_img_file.write("  - filename: "+str(f)+'\n')
             yaml_img_file.write("    author: "+'Pablo Bo.\n')
             yaml_img_file.write("    license: "+'CC-BY-NC-ND\n')
@@ -86,12 +101,12 @@ for f in onlyfiles:
             yaml_img_file.write("    description: "+'\n')
             yaml_img_file.write("    date: "+'\n')
             yaml_img_file.write("    year: "+galleryyear+'\n')
-            yaml_img_file.write("    camera: "+'\n')
+            yaml_img_file.write("    camera: "+ex_camera+'\n')
             yaml_img_file.write("    lens: "+'\n')
-            yaml_img_file.write("    ISO: "+'\n')
-            yaml_img_file.write("    fnumber: "+'\n')
-            yaml_img_file.write("    exposure: "+'\n')
-            yaml_img_file.write("    focal_length: "+'\n')
+            yaml_img_file.write("    ISO: "+ex_ISO+'\n')
+            yaml_img_file.write("    fnumber: "+ex_fnum+'\n')
+            yaml_img_file.write("    exposure: "+ex_exposure+'\n')
+            yaml_img_file.write("    focal_length: "+ex_focal+'\n')
             
 yaml_gall_file.close()
 yaml_img_file.close()
