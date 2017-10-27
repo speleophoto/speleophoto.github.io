@@ -1,0 +1,43 @@
+images:
+  - filename: DSC_0003.JPG
+    author: Pablo Bo.
+    license: CC-BY-NC-ND
+    title: Karabi.
+    gallerytitle: Karabi-2015
+    description: Да, и на этом можно заехать на Караби.
+    date: 205-05-01
+    year: 2015
+    camera: NIKON D90
+    lens: Tokina 12-24 F4 DX
+    ISO: 400
+    fnumber: f/20
+    exposure: 1/200
+    focal_length: 24mm
+  - filename: DSC_0057.JPG
+    author: Pablo Bo.
+    license: CC-BY-NC-ND
+    title: Viola(Egiz-tinah 3) cave. Karabi.
+    gallerytitle: Karabi-2015
+    description: 
+    date: 2015-05-04
+    year: 2015
+    camera: NIKON D90
+    lens: Tokina 12-24 F4 DX
+    ISO: 400
+    fnumber: f/5.6 
+    exposure: 15sec
+    focal_length: 18mm
+  - filename: DSC_0064.JPG
+    author: Pablo Bo.
+    license: CC-BY-NC-ND
+    title: Viola(Egiz-tinah 3) cave. Karabi.
+    gallerytitle: Karabi-2015
+    description: 
+    date: 2015-05-04
+    year: 2015
+    camera: NIKON D90
+    lens: Tokina 12-24 F4 DX
+    ISO: 400
+    fnumber: f/5.6 
+    exposure: 5sec
+    focal_length: 12mm
