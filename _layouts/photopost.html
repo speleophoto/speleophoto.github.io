@@ -40,7 +40,10 @@ padding: 10px;
       </p>
  </header>
 
-  <div class="post-content" itemprop="articleBody">
+  <div class="post-content" itemprop="articleBody"
+    {% if page.next_filename %}
+    onclick="location.href = '{{ site.url }}/photo_{{page.next_filename}}'"
+    {% endif %}>
     {{ content }}
   </div>
   
