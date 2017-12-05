@@ -5,7 +5,6 @@ permalink: /about/
 ---
 
 A long, long time ago...
-I took camera in my hands..
 
 ![Photo of author]({{ site.url }}/images/about/about.jpg){:class="img-responsive"}
 
